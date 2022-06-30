@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:44:03 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/18 18:55:55 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:29:35 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,28 @@ void	check_exit(t_program *program)
 
 int	ft_exit(void *params)
 {
-	t_program *program; 
-	
+	t_program	*program;
+
 	program = (t_program *)params;
 	exit(0);
 }
 
 int	ft_input(int key, void *params)
 {
-	t_program *program; 
-	
+	t_program	*program;
+
 	program = (t_program *)params;
-	if (key == KEY_UP)
+	if (key == KEY_UP || key == KEY_W)
 		move_up(program);
-	if (key == KEY_DOWN)
+	if (key == KEY_DOWN || key == KEY_S)
 		move_down(program);
-	if (key == KEY_RIGHT)
+	if (key == KEY_RIGHT || key == KEY_D)
 		move_right(program);
-	if (key == KEY_LEFT)
+	if (key == KEY_LEFT || key == KEY_A)
 		move_left(program);
 	if (key == KEY_ESC)
 		exit(0);
 	check_collectible(program);
 	check_exit(program);
-	map_to_window(program);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 10:43:32 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/06/18 18:49:06 by lorampon         ###   ########.fr        #
+#    Updated: 2022/06/27 17:15:03 by lorampon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,14 @@ NAME = so_long
 
 SRCS = \
 				main.c \
-				check_map.c \
 				get_next_line.c \
 				get_next_line_utils.c \
 				img_to_window.c \
 				exec.c \
 				move.c \
-				create_map.c
+				create_map.c \
+				check_map.c \
+				sprite.c
 
 OBJS_NAME = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR),$(OBJS_NAME))
@@ -36,7 +37,7 @@ MLX_A = $(MLX_DIR)libmlx.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror
 
 FLAGS_MLX = -framework OpenGL -framework AppKit
 
