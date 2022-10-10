@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:42:27 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/27 17:09:30 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:27:09 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void	move_up(t_program *program)
 {
 	if (program->map.strs[program->map.pos.x - 1][program->map.pos.y] == '1')
 		return ;
-	floor_to_window(*program, program->map.pos.y, program->map.pos.x);
+	check_collectible(program, program->map.pos.x - 1, program->map.pos.y);
+	check_exit(program, program->map.pos.x - 1, program->map.pos.y);
+	program->map.strs[program->map.pos.x - 1][program->map.pos.y] = 'P';
 	program->map.pos.x = program->map.pos.x - 1;
 	program->count++;
-	perso_to_window(*program, program->map.pos.y, program->map.pos.x);
+	map_to_window(program);
 	ft_printf("nbr of move = %d\n", program->count);
 }
 
@@ -27,10 +29,12 @@ void	move_down(t_program *program)
 {
 	if (program->map.strs[program->map.pos.x + 1][program->map.pos.y] == '1')
 		return ;
-	floor_to_window(*program, program->map.pos.y, program->map.pos.x);
+	check_collectible(program, program->map.pos.x + 1, program->map.pos.y);
+	check_exit(program, program->map.pos.x + 1, program->map.pos.y);
+	program->map.strs[program->map.pos.x + 1][program->map.pos.y] = 'P';
 	program->map.pos.x = program->map.pos.x + 1;
 	program->count++;
-	perso_to_window(*program, program->map.pos.y, program->map.pos.x);
+	map_to_window(program);
 	ft_printf("nbr of move = %d\n", program->count);
 }
 
@@ -38,10 +42,12 @@ void	move_right(t_program *program)
 {
 	if (program->map.strs[program->map.pos.x][program->map.pos.y + 1] == '1')
 		return ;
-	floor_to_window(*program, program->map.pos.y, program->map.pos.x);
+	check_collectible(program, program->map.pos.x, program->map.pos.y + 1);
+	check_exit(program, program->map.pos.x, program->map.pos.y + 1);
+	program->map.strs[program->map.pos.x][program->map.pos.y + 1] = 'P';
 	program->map.pos.y = program->map.pos.y + 1;
 	program->count++;
-	perso_to_window(*program, program->map.pos.y, program->map.pos.x);
+	map_to_window(program);
 	ft_printf("nbr of move = %d\n", program->count);
 }
 
@@ -49,9 +55,11 @@ void	move_left(t_program *program)
 {
 	if (program->map.strs[program->map.pos.x][program->map.pos.y - 1] == '1')
 		return ;
-	floor_to_window(*program, program->map.pos.y, program->map.pos.x);
+	check_collectible(program, program->map.pos.x, program->map.pos.y - 1);
+	check_exit(program, program->map.pos.x, program->map.pos.y - 1);
+	program->map.strs[program->map.pos.x][program->map.pos.y - 1] = 'P';
 	program->map.pos.y = program->map.pos.y - 1;
 	program->count++;
-	perso_to_window(*program, program->map.pos.y, program->map.pos.x);
+	map_to_window(program);
 	ft_printf("nbr of move = %d\n", program->count);
 }

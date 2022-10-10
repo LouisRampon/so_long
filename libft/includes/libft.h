@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 12:56:56 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/15 16:42:01 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:31:19 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdio.h>
-
 
 typedef struct s_list
 {
@@ -85,6 +84,5 @@ int			ft_putnbr_hexa_up(unsigned int nb);
 int			ft_ptrhexa(void *ptr);
 int			ft_putnbr(int nbr);
 int			ft_putnbr_unsigned(unsigned int nb);
-
 
 #endif

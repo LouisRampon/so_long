@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:13:39 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/27 17:22:55 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:29:19 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,19 @@ t_program	map_to_window(t_program *program)
 	int		x;
 
 	y = 0;
-	while (program->map.strs[y])
+	program->i = 0;
+	y = find_y(program);
+	while (program->map.strs[y] && program->i < MAX_Y)
 	{
-		x = 0;
-		while (program->map.strs[y][x])
+		x = find_x(program);
+		program->j = 0;
+		while (program->map.strs[y][x] && program->j < MAX_X)
 		{
-			if (program->map.strs[y][x] == 'E')
-				exit_to_window(*program, x, y);
-			else if (program->map.strs[y][x] == '1')
-				wall_to_window(*program, x, y);
-			else if (program->map.strs[y][x] == '0')
-				floor_to_window(*program, x, y);
-			else if (program->map.strs[y][x] == 'C')
-				collectible_to_window(*program, x, y);
-			else if (program->map.strs[y][x] == 'P')
-				map_to_window_help(program, x, y);
+			map_to_window_help(program, x, y);
 			x++;
+			program->j++;
 		}
+		program->i++;
 		y++;
 	}
 	return (*program);
@@ -66,9 +62,24 @@ t_program	map_to_window(t_program *program)
 
 void	map_to_window_help(t_program *program, int x, int y)
 {
-	floor_to_window(*program, x, y);
-	perso_to_window(*program, x, y);
-	program->map.strs[y][x] = '0';
-	program->map.pos.x = y;
-	program->map.pos.y = x;
+	if (program->map.strs[y][x] == 'E')
+		exit_to_window(*program);
+	else if (program->map.strs[y][x] == '1')
+		wall_to_window(*program);
+	else if (program->map.strs[y][x] == '0')
+		floor_to_window(*program);
+	else if (program->map.strs[y][x] == 'C')
+		collectible_to_window(*program);
+	else if (program->map.strs[y][x] == 'P')
+	{
+		floor_to_window(*program);
+		perso_to_window(*program);
+		if (program->check_exit)
+		{
+			program->map.strs[y][x] = 'E';
+			program->check_exit = 0;
+		}
+		else
+			program->map.strs[y][x] = '0';
+	}
 }

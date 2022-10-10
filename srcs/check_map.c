@@ -6,13 +6,13 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:46:50 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/27 17:56:22 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:41:19 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_check_p(t_program program)
+int	ft_check_p(t_program program, char c)
 {
 	int	i;
 	int	j;
@@ -25,9 +25,9 @@ int	ft_check_p(t_program program)
 		j = 0;
 		while (program.map.strs[i][j])
 		{
-			if (program.map.strs[i][j] == 'P' && p == 0)
+			if (program.map.strs[i][j] == c && p == 0)
 				return (1);
-			if (program.map.strs[i][j] == 'P')
+			if (program.map.strs[i][j] == c)
 				p = 0;
 			j++;
 		}
@@ -64,7 +64,7 @@ int	ft_check_dup(t_program program, char c)
 
 int	ft_check_wall(t_program program)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (program.map.strs[0][i + 1])
@@ -89,16 +89,18 @@ int	ft_check_wall(t_program program)
 
 int	ft_check_size(t_program program)
 {
-	size_t	i;
+	int		i;
+	size_t	ref;
 
 	i = 0;
+	ref = (ft_strlen(program.map.strs[0]));
 	while (program.map.strs[i + 1])
 	{
-		if (ft_strlen(program.map.strs[i]) != program.map.length + 1)
+		if (ft_strlen(program.map.strs[i]) != ref)
 			return (1);
 		i++;
 	}
-	if (ft_strlen(program.map.strs[i]) != program.map.length)
+	if (ft_strlen(program.map.strs[i]) != ref - 1)
 		return (1);
 	if (i + 1 != program.map.height)
 		return (1);

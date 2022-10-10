@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:44:55 by lorampon          #+#    #+#             */
-/*   Updated: 2022/06/27 17:56:34 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:08:19 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_create_map(t_program *program, char *str)
 	program->map.height = map_height(str);
 	program->map.strs = map_fill(str, program->map);
 	program->collec = nbr_collectible(program->map.strs);
-	program->map.length = (ft_strlen(program->map.strs[0]) - 1);
+	if (program->map.strs[0])
+		program->map.length = (ft_strlen(program->map.strs[0]) - 1);
 }
 
 int	nbr_collectible(char **strs)

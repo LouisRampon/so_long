@@ -6,7 +6,7 @@
 #    By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 10:43:32 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/06/27 17:15:03 by lorampon         ###   ########.fr        #
+#    Updated: 2022/10/06 11:29:57 by lorampon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = \
 				move.c \
 				create_map.c \
 				check_map.c \
-				sprite.c
+				sprite.c \
+				misc.c
 
 OBJS_NAME = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR),$(OBJS_NAME))
