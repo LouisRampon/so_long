@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:13:39 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/06 13:29:19 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 11:37:59 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_program	map_to_window(t_program *program)
 	y = 0;
 	program->i = 0;
 	y = find_y(program);
+	mlx_clear_window(program->mlx_pointer, program->window);
 	while (program->map.strs[y] && program->i < MAX_Y)
 	{
 		x = find_x(program);

@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:44:55 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/10 13:08:19 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:21:31 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char	**map_fill(char *argv, t_map map)
 
 	i = 0;
 	strs = malloc(sizeof(char *) * map.height + 1);
+	if (!strs)
+		exit (0);
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 		return (strs);

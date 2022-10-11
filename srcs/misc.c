@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:28:33 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/10 13:02:21 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:08:31 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	find_y(t_program *program)
 	y = 0;
 	if (program->map.height >= MAX_Y)
 	{
-		if (program->map.pos.x - 10 < 0)
+		if (program->map.pos.x - (MAX_Y / 2) < 0)
 			y = 0;
-		else if (program->map.pos.x + 10 >= program->map.height)
-			y = 13;
+		else if (program->map.pos.x + (MAX_Y / 2) >= program->map.height)
+			y = program->map.height - MAX_Y;
 		else
-			y = program->map.pos.x - 10;
+			y = program->map.pos.x - (MAX_Y / 2);
 	}
 	else
 		y = 0;
@@ -38,12 +38,12 @@ int	find_x(t_program *program)
 	x = 0;
 	if (program->map.length >= MAX_X)
 	{
-		if (program->map.pos.y - 20 < 0)
+		if (program->map.pos.y - (MAX_X / 2) < 0)
 				x = 0;
-		else if (program->map.pos.y + 20 >= program->map.length)
-			x = 19;
+		else if (program->map.pos.y + (MAX_X / 2) >= program->map.length)
+			x = program->map.length - MAX_X;
 		else
-			x = program->map.pos.y - 20;
+			x = program->map.pos.y - (MAX_X / 2);
 	}
 	else
 		x = 0;

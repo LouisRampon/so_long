@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:51:22 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/10 13:39:43 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:21:39 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,6 @@ int			ft_check_p(t_program program, char c);
 
 int			check_path(t_program program);
 int			solve_path(t_program program, int x, int y);
+void		ft_free_map(t_program *program);
 
 #endif
