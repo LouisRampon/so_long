@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:51:22 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/11 13:21:39 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:34:38 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_program
 	int			collec;
 	int			count;
 	int			check_exit;
+	int			nbr_move;
 	t_sprite	sprite;
 	t_map		map;
 }				t_program;

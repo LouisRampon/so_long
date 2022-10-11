@@ -6,7 +6,7 @@
 /*   By: lorampon <lorampon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:22:44 by lorampon          #+#    #+#             */
-/*   Updated: 2022/10/11 13:21:36 by lorampon         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:47:23 by lorampon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,17 @@ int	ft_check_map(t_program *program)
 		return (1);
 	if (ft_check_char(*program))
 	{
-		ft_printf("Error\n Mauvais Char\n");
+		ft_printf("Error\n");
 		return (1);
 	}
 	if (ft_check_size(*program))
 	{
-		ft_printf("Error\n Mauvaise Taille\n");
+		ft_printf("Error\nMauvaise Taille\n");
 		return (1);
 	}
 	if (ft_check_wall(*program))
 	{
-		ft_printf("Error\n Mauvais Mur\n");
+		ft_printf("Error\nMauvais Mur\n");
 		return (1);
 	}
 	if (ft_check_map_help(program))
@@ -95,12 +95,12 @@ int	ft_check_map_help(t_program *program)
 	}
 	if (ft_check_p(*program, 'P') || ft_check_p(*program, 'E'))
 	{
-		ft_printf("Error\n Double perso ou sortie\n");
+		ft_printf("Error\nDouble perso ou sortie\n");
 		return (1);
 	}
 	if (check_path(*program))
 	{
-		ft_printf("Error\n Pas de Chemin possible\n");
+		ft_printf("Error\nPas de Chemin possible\n");
 		return (1);
 	}
 	return (0);
