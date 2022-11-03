@@ -1,0 +1,3 @@
+./philo 0 400 200 200
+./philo 1 400 200 200
+pas de philo 0, doit commencer a 1
